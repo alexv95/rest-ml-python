@@ -9,7 +9,7 @@ class HealthCheckRouter:
         self.router = APIRouter()
         self.router.add_api_route("/health-check",self.flight_prediction,methods=["GET"])
     def flight_prediction(self):
-        return {"Status":"Ml app is up","Model version": settings.MODEL_VERSION}
+        return {"status":"Ml app is up","model_version": settings.MODEL_VERSION}
         
 
 
