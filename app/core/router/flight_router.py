@@ -13,7 +13,7 @@ class FlightRouter:
         
 
 
-flight:object = FlightRouter()
+flightRouter:object = FlightRouter()
 
 
 
