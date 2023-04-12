@@ -1,6 +1,6 @@
 
 from fastapi import APIRouter
-from app.core.ml.flight_prediction import __version__ as modelVersion
+from app.core.config import settings
 
 
 
@@ -9,7 +9,7 @@ class HealthCheckRouter:
         self.router = APIRouter()
         self.router.add_api_route("/health-check",self.flight_prediction,methods=["GET"])
     def flight_prediction(self):
-        return {"Status":"Ml app is up","Model version": modelVersion}
+        return {"Status":"Ml app is up","Model version": settings.MODEL_VERSION}
         
 
 
