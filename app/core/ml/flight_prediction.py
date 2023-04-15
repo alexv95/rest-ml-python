@@ -38,5 +38,5 @@ class MlPredictionFlight:
         pred = model.predict([text])
         return classes[pred[0]]
 
-mlPredictionFlight:object= MlPredictionFlight()
+ml_prediction_flight:object= MlPredictionFlight()
 

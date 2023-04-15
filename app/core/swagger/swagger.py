@@ -3,11 +3,11 @@
 
 tags_metadata = [
     {
-        "name": "flight",
+        "name": "Flight",
         "description": "This resource is used to predict info based on a input.",
     },
     {
-        "name":"healthcheck",
+        "name":"HealthCheck",
         "description": "This resource contains a basic health check with model info version",
     },
 ]

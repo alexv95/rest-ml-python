@@ -13,4 +13,4 @@ class HealthCheckRouter:
         
 
 
-healthCheckRouter:object = HealthCheckRouter()
+health_check_router:object = HealthCheckRouter()
