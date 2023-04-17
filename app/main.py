@@ -6,6 +6,13 @@ from app.core.router.flight_router import flight_router
 from app.core.router.health_check import health_check_router
 from app.core.swagger.swagger import tags_metadata
 
+
+responses = {
+    404: {"description": "Item not found"},
+    302: {"description": "The item was moved"},
+    403: {"description": "Not enough privileges"},
+}
+
 def get_application():
     _app = FastAPI(title=settings.PROJECT_NAME,version=1,openapi_tags=tags_metadata)
     _app.include_router(health_check_router.router,tags=["healthcheck"])
