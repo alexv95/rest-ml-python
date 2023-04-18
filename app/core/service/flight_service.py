@@ -14,6 +14,9 @@ class FlightService:
         else:
             predicted_value_dto= FlightPredictionDto(input_value,ml_prediction_flight.predict_pipeline(input_value))
             return predicted_value_dto.__dict__
+        
+    def prediction_multi(self,fecha_vuelo,numero_vuelo,codigo_ciudad_origen,codigo_ciudad_destino,codigo_aerolinea,fecha_operacion,vuelo_operacion,codigo_origen_operacion,codigo_destino_operacion,codigo_aerolinea_operado,dia,mes,ano,dia_nominal,tipo_vuelo,opera,sigla_origen,sigla_destino):
+        return ml_prediction_flight.predict_pipeline_multiparam(fecha_vuelo,numero_vuelo,codigo_ciudad_origen,codigo_ciudad_destino,codigo_aerolinea,fecha_operacion,vuelo_operacion,codigo_origen_operacion,codigo_destino_operacion,codigo_aerolinea_operado,dia,mes,ano,dia_nominal,tipo_vuelo,opera,sigla_origen,sigla_destino)
  
 flight_service:object = FlightService()
 

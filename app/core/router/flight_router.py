@@ -20,7 +20,7 @@ class FlightRouter:
                                 codigo_ciudad_destino: str = Query(...,description="Código de ciudad de destino programado",min_length=3,max_length=5),
                                 codigo_aerolinea: str = Query(...,description="Código aerolínea de vuelo programado",min_length=3,max_length=3),
                                 fecha_operacion : str = Query(...,description="Fecha y hora de operación del vuelo"),
-                                vuelo_operacion : int = Query(...,description="Número de vuelo de operación del vuelo",min_length=3,max_length=5),
+                                vuelo_operacion : int = Query(...,description="Número de vuelo de operación del vuelo",ge=10, le=9999),
                                 codigo_origen_operacion : str = Query(...,description="Código de ciudad de origen de operación",min_length=3,max_length=5),
                                 codigo_destino_operacion :str= Query(...,description="Código de ciudad de destino de operación",min_length=3,max_length=5),
                                 codigo_aerolinea_operado : str =Query(...,description="Código aerolínea de vuelo operado",min_length=3,max_length=3),
@@ -33,7 +33,7 @@ class FlightRouter:
                                 sigla_origen : str =Query(...,description="Nombre ciudad origen",min_length=3,max_length=100),
                                 sigla_destino : str = Query(...,description="Nombre ciudad destino",min_length=4,max_length=100)
                                 ):
-        return fecha_vuelo
+        return flight_service.prediction_multi(fecha_vuelo,numero_vuelo,codigo_ciudad_origen,codigo_ciudad_destino,codigo_aerolinea,fecha_operacion,vuelo_operacion,codigo_origen_operacion,codigo_destino_operacion,codigo_aerolinea_operado,dia,mes,ano,dia_nominal,tipo_vuelo,opera,sigla_origen,sigla_destino)
         
         
 
