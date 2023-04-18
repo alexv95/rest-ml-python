@@ -27,11 +27,11 @@ class FlightRouter:
                                 dia : int = Query(...,description="Día del mes de operacion del vuelo",ge=1,le=31),
                                 mes :int = Query(...,description="Número del mes de operacion del vuelo",ge=1,le=12),
                                 ano: int = Query(...,description = "Año de operacion del vuelo",ge= 2000,le=3000),
-                                dia_nominal: str= Query(...,description ="Día de la semana de operación del vuelo"),
+                                dia_nominal: str= Query(...,description ="Día de la semana de operación del vuelo",min_length=4,max_length=100),
                                 tipo_vuelo : str = Query(...,description="Tipo de vuelo, I =Internacional, N =Nacional",min_lenght=1,max_length=1),
-                                opera : str = Query(...,description="Nombre de aerolínea que opera"),
-                                sigla_origen : str =Query(...,description="Nombre ciudad origen"),
-                                sigla_destino : str = Query(...,description="Nombre ciudad destino")
+                                opera : str = Query(...,description="Nombre de aerolínea que opera",min_length=4,max_length=100),
+                                sigla_origen : str =Query(...,description="Nombre ciudad origen",min_length=3,max_length=100),
+                                sigla_destino : str = Query(...,description="Nombre ciudad destino",min_length=4,max_length=100)
                                 ):
         return fecha_vuelo
         
