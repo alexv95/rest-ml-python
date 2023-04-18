@@ -12,23 +12,28 @@ class FlightRouter:
     async def flight_prediction(self,value_to_predict:str):
         return flight_service.prediction(value_to_predict)
     
-    ##'MES_7', 'TIPOVUELO_I', 'OPERA_Copa Air', 'OPERA_Latin American Wings','MES_12', 'OPERA_Grupo LATAM', 
-    # 'MES_10', 'OPERA_JetSmart SPA', 'OPERA_Air Canada',
-    ###'MES_9', 'OPERA_American Airlines
+  
     async def flight_multiparam(self,
-                                mes_7:int = Query(...,description="Corresponde a si ocurre en el mes 7", ge=0, le=1),
-                                tipo_vuelo_i:int = Query(...,description="Corresponde al tipo de vuelo internacional o nacional", ge=0, le=1),
-                                opera_copa_air :int = Query(...,description="Corresponde a si lo opera copa air", ge=0, le=1),
-                                opera_latin_american_wings:int = Query(...,description="Corresponde a si es operado por latin american airwings", ge=0, le=1),
-                                mes_12:int = Query(...,description="Corresponde a si ocurrio en el mes de diciembre", ge=0, le=1),
-                                opera_grupo_latam: int = Query(...,description="Corresponde  a si es operado por grupo latam", ge=0, le=1),
-                                mes_10 :int = Query(..., description="Corresponde a si ocurre en octubre",ge=0, le=1) ,
-                                opera_jet_smart_spa: int = Query(...,description="Corresponde a si es operado por jetsmart", ge=0, le=1),
-                                opera_air_canada : int = Query(...,description="Corresponde a si es operado por canada air", ge=0, le=1),
-                                mes_9: int = Query(..., description="Corresponde a si ocurre en octubre",ge=0, le=1),
-                                opera_american_airlines: int = Query(...,description="Corresponde a si ocurre en american airlines", ge=0, le=1)
+                                fecha_vuelo : str = Query (...,description="Fecha y hora programada del vuelo"),
+                                numero_vuelo:int = Query(...,description="Número de vuelo programado", ge=0, le=1),
+                                codigo_ciudad_origen:str =Query(...,description="Código de vuelo de ciudad de origen programado",min_length=3,max_length=3),
+                                codigo_ciudad_destino: str = Query(...,description="Código de ciudad de destino programado",min_length=3,max_length=3),
+                                codigo_aerolinea: str = Query(...,description="Código aerolínea de vuelo programado",min_length=3,max_length=3),
+                                fecha_operacion : str = Query(...,description="Fecha y hora de operación del vuelo"),
+                                vuelo_operacion : int = Query(...,description="Número de vuelo de operación del vuelo",min_length=3,max_length=3),
+                                codigo_origen_operacion : str = Query(...,description="Código de ciudad de origen de operación",min_length=3,max_length=3),
+                                codigo_destino_operacion :str= Query(...,description="Código de ciudad de destino de operación",min_length=3,max_length=3),
+                                codigo_aerolinea_operado : str =Query(...,description="Código aerolínea de vuelo operado",min_length=3,max_length=3),
+                                dia : int = Query(...,description="Día del mes de operacion del vuelo",ge=1,le=31),
+                                mes :int = Query(...,description="Número del mes de operacion del vuelo",ge=1,le=12),
+                                ano: int = Query(...,description = "Año de operacion del vuelo",ge= 2000,le=3000),
+                                dia_nominal: str= Query(...,description ="Día de la semana de operación del vuelo"),
+                                tipo_vuelo : str = Query(...,description="Tipo de vuelo, I =Internacional, N =Nacional",min_lenght=1,max_length=1),
+                                opera : str = Query(...,description="Nombre de aerolínea que opera"),
+                                sigla_origen : str =Query(...,description="Nombre ciudad origen"),
+                                sigla_destino : str = Query(...,description="Nombre ciudad destino")
                                 ):
-        return mes_7
+        return fecha_vuelo
         
         
 
